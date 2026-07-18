@@ -1,0 +1,16 @@
+1class Solution {
+2    public String rearrangeString(String s, char x, char y) {
+3        StringBuilder xstr = new StringBuilder();
+4        StringBuilder ystr = new StringBuilder();
+5        StringBuilder ostr = new StringBuilder();
+6        for(char ch : s.toCharArray()){
+7            if(ch == x)
+8                xstr.append(ch);
+9            else if(ch == y)
+10                ystr.append(ch);
+11            else
+12                ostr.append(ch);
+13        }
+14        return ystr.toString() + ostr.toString() + xstr.toString();
+15    }
+16}
