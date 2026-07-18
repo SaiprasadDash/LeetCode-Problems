@@ -3,7 +3,7 @@
 3        long swap = 0;
 4        long m = 0;
 5        long r = 0;
-6        int mod = 1_000_000_007;
+6        int mod = (int) Math.pow(10, 9) + 7;
 7        for(int num : nums){
 8            if(num < a) {
 9                swap += m + r;
