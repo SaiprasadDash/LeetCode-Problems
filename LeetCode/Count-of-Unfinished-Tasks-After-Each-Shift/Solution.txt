@@ -1,0 +1,43 @@
+1class Solution {
+2    public int[] countTasks(int[] tasks, int[] shifts) {
+3        int n = tasks.length;
+4        int m = shifts.length;
+5        long arr[] = new long[n+1];
+6        for(int i = 0; i < n; i++){
+7            arr[i+1] = arr[i] + tasks[i];
+8        }
+9
+10        long total = arr[n];
+11        long pro = 0;
+12        int ans[] = new int[m];
+13
+14        for(int i = 0; i < m; i++){
+15            pro += shifts[i];
+16
+17            if(pro >= total){
+18                ans[i] = 0;
+19                pro = 0;
+20            }
+21            else{
+22                int remain = mid(arr, pro);
+23                ans[i] = n - remain;
+24            }
+25        }
+26        return ans;
+27    }
+28    public int mid(long[] arr, long t){
+29        int low = 0, mid = 0;
+30        int high = arr.length-1;
+31        while(low <= high){
+32            mid = low + (high - low) / 2;
+33
+34            if(arr[mid] <= t){
+35                low = mid + 1;
+36            }
+37            else{
+38                high = mid - 1;
+39            }
+40        }
+41        return high;
+42    }
+43}
